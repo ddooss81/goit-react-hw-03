@@ -13,30 +13,24 @@ export default function App() {
   ];
 
   const [contacts, setContacts] = useState(() => {
-    //localStorage або використати початкові контакти
     const storedContacts = JSON.parse(localStorage.getItem('contacts'));
     return storedContacts || initialContacts;
   });
 
-  // Збереження контактів у localStorage при їх зміні
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  //Додавання контакту
   const addContact = (newContact) => {
     setContacts((currentContacts) => [...currentContacts, newContact]);
   };
 
-  // Фільтрація контактів
   const [filter, setFilter] = useState('');
 
-  // Відфільтровані контакти
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
-  // Видалення контакту
   const deleteContact = (contactId) => {
     setContacts((currentContacts) =>
       currentContacts.filter((contact) => contact.id !== contactId)
