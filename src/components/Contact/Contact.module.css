@@ -1,0 +1,22 @@
+.listItem {
+    display: flex;
+    padding: 8px 12px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactItem {
+    margin: 0;
+}
+
+.deleteBtn {
+    margin-left: 10px;
+    line-height: 1;
+    padding: 6px 12px;
+    border: 1px solid black;
+}
